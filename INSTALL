@@ -1,5 +1,5 @@
 Install boot2docker
-———————————————————
+-------------------
 - https://github.com/boot2docker/osx-installer/releases/latest
 - https://docs.docker.com/installation/mac/
 
@@ -13,3 +13,13 @@ Install boot2docker
 - Should print:
 “Hello from Docker.
 This message shows that your installation appears to be working correctly.”
+
+
+Building a Docker container
+---------------------------
+
+○ → docker build -t screwdriver-docker-proxy .
+○ → docker run --name screwdriver-docker-proxy -P screwdriver-docker-proxy
+
+- You can attach to a running image with
+○ → docker exec -it screwdriver-docker-proxy bash
