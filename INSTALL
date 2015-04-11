@@ -1,0 +1,15 @@
+Install boot2docker
+———————————————————
+- https://github.com/boot2docker/osx-installer/releases/latest
+- https://docs.docker.com/installation/mac/
+
+○ → boot2docker init
+○ → boot2docker up
+
+- Follow instructions
+
+○ → docker run hello-world
+
+- Should print:
+“Hello from Docker.
+This message shows that your installation appears to be working correctly.”
