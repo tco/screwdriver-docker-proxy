@@ -7,7 +7,9 @@ MAINTAINER Antti Rintala <antti@rintala.it>
 # statement above it. For this reason we collapse the RUN statements into one
 # multiline statement.
 
-RUN apt-get -y update && \
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list && \
+    apt-get -y update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-software-properties software-properties-common && \
     add-apt-repository -y ppa:nginx/stable && \
     apt-get -y update && \
     apt-get install -y nginx
