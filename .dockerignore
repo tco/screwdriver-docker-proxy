@@ -2,3 +2,5 @@ INSTALL
 LICENSE
 README.md
 .gitignore
+build.sh
+run-container.sh
