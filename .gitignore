@@ -1,5 +1,4 @@
 .idea/
-ssl/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
