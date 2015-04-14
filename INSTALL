@@ -23,3 +23,27 @@ Building a Docker container
 
 - You can attach to a running image with
 ○ → docker exec -it screwdriver-docker-proxy bash
+
+
+Perparing the certificate
+-------------------------
+
+Many certificate providers will provide you with .crt files. Amazon only
+takes the certificates as pem format, so they need to be transformed.
+
+1. Make the key and signing request
+
+○ → openssl req -new -newkey rsa:2048 -nodes -keyout screwdriver.cc.key -out screwdriver.cc.csr
+
+- This will generate two files, key and csr. Send the singing request to the SSL Authority and
+  wait for your certificate to arrive
+
+2. Transform the crt to pem (if needed)
+
+○ → openssl x509 -inform PEM -in screwdriver.cc.crt > screwdriver.cc.pem
+
+3. Transform the certificate chain to pem (if needed)
+
+○ → (openssl x509 -inform PEM -in COMODORSADomainValidationSecureServerCA.crt; openssl x509 -inform PEM -in COMODORSAAddTrustCA.crt; openssl x509 -inform PEM -in AddTrustExternalCARoot.crt) > screwdriver.chain.pem
+
+4. Save these to Amazon and you're ready to go
