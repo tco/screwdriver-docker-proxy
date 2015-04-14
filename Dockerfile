@@ -20,9 +20,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
     mkdir -p /etc/nginx/ssl/
 
 ADD configuration/nginx.conf /etc/nginx/
-ADD ssl/screwdriver.dev.crt /etc/nginx/ssl/
-ADD ssl/screwdriver.dev.key /etc/nginx/ssl/
 
-EXPOSE 80 443
+EXPOSE 80
 
 CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
