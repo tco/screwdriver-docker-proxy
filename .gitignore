@@ -1,5 +1,4 @@
 .idea/
-private/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
