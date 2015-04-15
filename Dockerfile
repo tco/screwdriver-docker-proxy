@@ -20,6 +20,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
     mkdir -p /etc/nginx/ssl/
 
 ADD configuration/nginx.conf /etc/nginx/
+ADD private/.registry-users /etc/nginx/
 
 EXPOSE 80
 
