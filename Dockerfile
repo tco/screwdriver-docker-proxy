@@ -17,12 +17,11 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
     add-apt-repository -y ppa:nginx/stable && \
     apt-get -y update && \
     apt-get install -y nginx curl && \
-    mkdir -p /etc/nginx/ssl/
-
-RUN curl -o /etc/nginx/.htpasswd $(printenv REGISTRY_USERS)
+    mkdir -p /usr/local/screwdriver/
 
 ADD configuration/nginx.conf /etc/nginx/
+ADD scripts/runner.sh /usr/local/screwdriver/
 
 EXPOSE 80
 
-CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
+CMD ["/usr/local/screwdriver/runner.sh"]
