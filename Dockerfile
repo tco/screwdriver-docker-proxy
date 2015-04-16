@@ -19,7 +19,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
     apt-get install -y nginx && \
     mkdir -p /etc/nginx/ssl/
 
-RUN echo $REGISTRY_USERS > /etc/nginx/.registry-users
+RUN echo $REGISTRY_USERS > /etc/nginx/.htpasswd
 
 ADD configuration/nginx.conf /etc/nginx/
 
