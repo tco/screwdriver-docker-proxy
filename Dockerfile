@@ -17,11 +17,11 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
     add-apt-repository -y ppa:nginx/stable && \
     apt-get -y update && \
     apt-get install -y nginx && \
-    mkdir -p /etc/nginx/ssl/ && \
-    echo $REGISTRY_USERS > /etc/nginx/.registry-users
+    mkdir -p /etc/nginx/ssl/
+
+RUN echo $REGISTRY_USERS > /etc/nginx/.registry-users
 
 ADD configuration/nginx.conf /etc/nginx/
-
 
 EXPOSE 80
 
