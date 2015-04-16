@@ -16,10 +16,10 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
     DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-software-properties software-properties-common && \
     add-apt-repository -y ppa:nginx/stable && \
     apt-get -y update && \
-    apt-get install -y nginx && \
+    apt-get install -y nginx curl && \
     mkdir -p /etc/nginx/ssl/
 
-RUN echo $REGISTRY_USERS > /etc/nginx/.htpasswd
+RUN curl -o /etc/nginx/.htpasswd $(printenv REGISTRY_USERS)
 
 ADD configuration/nginx.conf /etc/nginx/
 
